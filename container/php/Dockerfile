@@ -17,7 +17,8 @@ RUN apt-get update \
        libmcrypt-dev \
        libpng-dev \
     && docker-php-ext-install pdo_mysql \
-    && pecl install redis-4.0.2 && docker-php-ext-enable redis
+    && pecl install redis-4.0.2 && docker-php-ext-enable redis \
+    && pecl install xdebug-2.8.1.tgz && docker-php-ext-enable xdebug
 
 #修改uuid
 RUN usermod -u 1000 www-data
