@@ -1,6 +1,9 @@
 <?php
 namespace app\index\controller;
 
+use think\facade\Cache;
+use think\Db;
+
 class Index
 {
     public function index()
@@ -11,5 +14,17 @@ class Index
     public function hello($name = 'ThinkPHP5')
     {
         return 'hello,' . $name;
+    }
+
+    public function redisTest(){    
+        Cache::store('redis')->set('name','value');
+        return json(Cache::store('redis')->get('name'));
+    }
+
+    public function mysqlTest(){
+
+        // $mysqli = new \PDO('127.0.0.1', "root", "123456");
+        $result = Db::name('test')->select();
+        return json($result);
     }
 }

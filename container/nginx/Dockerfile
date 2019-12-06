@@ -3,7 +3,7 @@
 #设置镜像
 FROM nginx
 #设置作者
-MAINTAINER "1181488349@qq.com"
+LABEL MAINTAINER "1181488349@qq.com"
 
 #设置时区
 ENV TZ=Asia/Shanghai

@@ -3,7 +3,7 @@
 #设置镜像
 FROM php:7.2-fpm
 #设置作者
-MAINTAINER "1181488349@qq.com"
+LABEL MAINTAINER "1181488349@qq.com"
 
 #设置时区
 ENV TZ=Asia/Shanghai
@@ -16,7 +16,8 @@ RUN apt-get update \
        libjpeg62-turbo-dev \
        libmcrypt-dev \
        libpng-dev \
-    && docker-php-ext-install pdo_mysql 
+    && docker-php-ext-install pdo_mysql \
+    && pecl install redis-4.0.2 && docker-php-ext-enable redis
 
 #修改uuid
 RUN usermod -u 1000 www-data
