@@ -23,8 +23,5 @@ class Index
 
     public function mysqlTest(){
 
-        // $mysqli = new \PDO('127.0.0.1', "root", "123456");
-        $result = Db::name('test')->select();
-        return json($result);
     }
 }
