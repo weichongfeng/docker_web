@@ -36,7 +36,7 @@ services:
       - "3306:3306"
     volumes:
       - ../data/mysql:/var/lib/mysql:rw
-      - ../logs/mysql:/var/lib/mysql-logs:rw
+      - ../logs/mysql:/var/log/mysql:rw
       - ./mysql/conf.d:/etc/mysql/conf.d:ro
     environment:
         MYSQL_ROOT_PASSWORD: 123456
