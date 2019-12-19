@@ -26,7 +26,7 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ../logs/nginx:/var/log/nginx:rw
     ports:
-      - "80:80"
+      - "8080:8080"
       - "8000:8000"
     restart: always
     command: nginx -g 'daemon off;'
