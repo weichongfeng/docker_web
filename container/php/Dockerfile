@@ -16,7 +16,7 @@ RUN apt-get update \
        libjpeg62-turbo-dev \
        libmcrypt-dev \
        libpng-dev \
-    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install -j$(nproc) bcmath pdo_mysql \
     && pecl install redis-4.0.2 && docker-php-ext-enable redis \
     && pecl install xdebug-2.8.1.tgz && docker-php-ext-enable xdebug
 
