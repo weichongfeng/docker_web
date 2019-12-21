@@ -86,3 +86,9 @@ Route::get('api/users/{user}', function (App\User $user){
 Route::fallback(function (){
     return '404';
 });
+
+
+//路由中间件
+Route::get('age', function (){
+    return 'age >= 20';
+})->middleware('checkAge','checkName');

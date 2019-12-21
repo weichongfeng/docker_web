@@ -41,6 +41,11 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+
+        'age' => [
+            Middleware\CheckAge::class,
+            Middleware\CheckName::class,
+        ],
     ];
 
     /**
@@ -61,6 +66,11 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        //自定义中间件
+        'checkAge' => Middleware\CheckAge::class,
+        'checkName' => Middleware\CheckName::class,
+
     ];
 
     /**
