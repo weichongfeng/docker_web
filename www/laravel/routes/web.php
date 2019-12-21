@@ -45,3 +45,44 @@ Route::get('hello/{name}/good/{time}', function ($name, $time){//必填多参数
 Route::get('/post/{id?}', function ($id = 1){//可选参数
     return 'post_id = ' . $id;
 });
+
+
+//路由命名
+Route::get('user/profile' ,function (){
+    return '路由命名';
+})->name('profile');
+
+Route::get('profile' ,function (){
+    return route('profile', ['id'=>1]);//根据路由名称生成路由
+});
+
+//命名空间
+Route::namespace('admin')->group(function (){
+   Route::get('admin', 'AdminController@index');
+});
+
+//路由前缀
+Route::prefix('user')->group(function (){
+    Route::get('index', function (){
+        return url('comment');
+    });
+});
+
+//路由名称前缀
+Route::name('comment.')->group(function (){
+    Route::get('comment', function (){
+        return 'comment.index';
+    })->name('comment');
+});
+
+
+//路由模型绑定
+//饮食绑定
+Route::get('api/users/{user}', function (App\User $user){
+    return $user->name;
+});
+
+//回退路由
+Route::fallback(function (){
+    return '404';
+});

@@ -30,7 +30,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //限制ID必须是整数
+        Route::pattern('id', '[0-9]+');
+        Route::model('user', App\User::class);
 
         parent::boot();
     }
