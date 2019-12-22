@@ -13,6 +13,21 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('checkToken');
+
+        //自定义中间件
+        $this->middleware(function ($request, $next){
+            if (!$request->name){
+                return redirect('/');
+            }
+            return $next($request);
+        });
+    }
+
+
     public function index(){
         return 'AdminController@index';
     }

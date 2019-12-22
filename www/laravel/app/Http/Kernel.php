@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use think\Middleware;
 
 class Kernel extends HttpKernel
 {
@@ -68,8 +69,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         //自定义中间件
-        'checkAge' => Middleware\CheckAge::class,
-        'checkName' => Middleware\CheckName::class,
+        'checkAge' => \App\Http\Middleware\CheckAge::class,
+        'checkName' => \App\Http\Middleware\CheckName::class,
+        'checkToken' => \App\Http\Middleware\CheckToken::class,
 
     ];
 
