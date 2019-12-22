@@ -92,3 +92,6 @@ Route::fallback(function (){
 Route::get('age', function (){
     return 'age >= 20';
 })->middleware('checkAge','checkName');
+
+Route::get('/user/index', 'UserController@index');
+Route::get('/user/detail/{id}', 'UserController@detail');
