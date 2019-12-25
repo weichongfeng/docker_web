@@ -93,5 +93,16 @@ Route::get('age', function (){
     return 'age >= 20';
 })->middleware('checkAge','checkName');
 
-Route::get('/user/index', 'UserController@index');
-Route::get('/user/detail/{id}', 'UserController@detail');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//mysql 学习路由
+Route::prefix('database')->name('database.')->group(function (){
+   Route::get('/select', 'LearnDatabaseController@select')->name('select');
+   Route::get('/update', 'LearnDatabaseController@update')->name('update');
+});
