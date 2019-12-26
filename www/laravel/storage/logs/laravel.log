@@ -802,3 +802,5 @@
 #47 /www/laravel/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
+[2019-12-25 21:15:51] local.ERROR: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: 不知道这样的主机。  (SQL: select * from information_schema.tables where table_schema = laravel and table_name = migrations and table_type = 'BASE TABLE') null 
+[2019-12-25 21:16:14] local.ERROR: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: 不知道这样的主机。  (SQL: select * from information_schema.tables where table_schema = laravel and table_name = migrations and table_type = 'BASE TABLE') null 
