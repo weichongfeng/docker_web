@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
 
 /**
@@ -92,10 +92,6 @@ Route::fallback(function (){
 Route::get('age', function (){
     return 'age >= 20';
 })->middleware('checkAge','checkName');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
