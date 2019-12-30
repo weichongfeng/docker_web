@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- import CSS -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <title>Document</title>
     <style>
         .el-header,
         .el-footer {
@@ -47,9 +45,10 @@
 
 <body>
     <div id="app">
+
         <el-container>
             <el-header>
-                <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="vertical" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+                <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
                     <el-menu-item index="1">处理中心</el-menu-item>
                     <el-submenu index="2">
                         <template slot="title">我的工作台</template>
@@ -71,26 +70,27 @@
             <el-footer>Footer</el-footer>
         </el-container>
     </div>
-
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <script>
-        var Main = {
-            data() {
-                return {
-                    activeIndex: '1',
-                    activeIndex2: '1'
-                };
-            },
-            methods: {
-                handleSelect(key, keyPath) {
-                    console.log(key, keyPath);
-                }
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var Main = {
+        data() {
+            return {
+                activeIndex: '1',
+                activeIndex2: '1'
+            };
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
             }
         }
-        var Ctor = Vue.extend(Main)
-        new Ctor().$mount('#app')
-    </script>
-</body>
+    }
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#app')
+</script>
 
 </html>
