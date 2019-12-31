@@ -28,6 +28,12 @@ class LearnDatabaseController extends Controller
         return Redis::get('test');
     }
 
+    public function redisSubscribe()
+    {
+        Redis::publish('test-channel', 'Hello Word!');
+        return "Hello Word!";
+    }
+
 
 
 }
