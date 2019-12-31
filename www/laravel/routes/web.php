@@ -101,4 +101,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('database')->name('database.')->group(function (){
    Route::get('/select', 'LearnDatabaseController@select')->name('select');
    Route::get('/update', 'LearnDatabaseController@update')->name('update');
+   Route::get('/redisTest', 'LearnDatabaseController@redisTest')->name('redisTest');
 });
