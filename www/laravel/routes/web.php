@@ -103,4 +103,5 @@ Route::prefix('database')->name('database.')->group(function (){
    Route::get('/update', 'LearnDatabaseController@update')->name('update');
    Route::get('/redisTest', 'LearnDatabaseController@redisTest')->name('redisTest');
    Route::get('/redisSubscribe', 'LearnDatabaseController@redisSubscribe')->name('redisSubscribe');
+   Route::get('/cacheTest', 'LearnDatabaseController@cacheTest')->name('cacheTest');
 });
