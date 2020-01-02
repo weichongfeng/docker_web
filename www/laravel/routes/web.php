@@ -105,3 +105,11 @@ Route::prefix('database')->name('database.')->group(function (){
    Route::get('/redisSubscribe', 'LearnDatabaseController@redisSubscribe')->name('redisSubscribe');
    Route::get('/cacheTest', 'LearnDatabaseController@cacheTest')->name('cacheTest');
 });
+
+//邮件学习
+Route::prefix('mail')->name('mail.')->group(function(){
+    Route::get('/build', 'LearnMail@build')->name('build');
+});
+Route::prefix('mail')->name('mail.')->group(function (){
+    Route::get('/send', 'LearnMail@send')->name('send');
+ });
