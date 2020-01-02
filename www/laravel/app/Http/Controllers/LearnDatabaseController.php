@@ -27,20 +27,27 @@ class LearnDatabaseController extends Controller
 
     public function redisTest()
     {
-        Redis::set('test', 123);
+        $redis = Redis::connection('publisher');
+        $redis->setex('test', 10,100);
         return Redis::get('test');
     }
 
     public function redisSubscribe()
     {
-        Redis::publish('test-channel', 'Hello Word!');
-        return "Hello Word!";
+        Redis::connection('default')->command('set', ['test1',123131]);
+        return Redis::connection('default')->command('get',['test1']);
+
+        // Redis::connection('default')->set('test-channel', 'Hello Word!');
+        // Redis::connection('default')->publish('test-channel', 'Hello Word!');
+        
+        // // Redis::publish('test-channel', 'Hello Word!');
+        // return "Hello Word!";
     }
 
     public function cacheTest()
     {
-        Cache::store('file')->set('file', 'file', 10);
-        Cache::store('redis')->set('redis', 'redis', 10);
+        // Cache::store('file')->set('file', 'file', 10);
+        Cache::store('redis')->put('redis', 'redis', 10);
         return Cache::store('redis')->get('redis');
     }
 }
