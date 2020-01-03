@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Cache;
 
 use App\Events\OrderShipped;
+use App\Jobs\ProcessPodcast;
 
 class LearnDatabaseController extends Controller
 {
@@ -49,5 +50,10 @@ class LearnDatabaseController extends Controller
         // Cache::store('file')->set('file', 'file', 10);
         Cache::store('redis')->put('redis', 'redis', 10);
         return Cache::store('redis')->get('redis');
+    }
+
+    public function queueTest()
+    {
+        ProcessPodcast::dispatch();
     }
 }
