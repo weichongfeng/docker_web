@@ -105,6 +105,7 @@ Route::prefix('database')->name('database.')->group(function (){
    Route::get('/redisSubscribe', 'LearnDatabaseController@redisSubscribe')->name('redisSubscribe');
    Route::get('/cacheTest', 'LearnDatabaseController@cacheTest')->name('cacheTest');
    Route::get('/queueTest', 'LearnDatabaseController@queueTest')->name('queueTest');
+   Route::get('/elopuentTest', 'LearnDatabaseController@elopuentTest')->name('elopuentTest');
 });
 
 //邮件学习
