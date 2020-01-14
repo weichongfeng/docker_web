@@ -20,6 +20,12 @@ RUN apt-get update \
     && pecl install redis-4.0.2 && docker-php-ext-enable redis \
     && pecl install xdebug-2.8.1.tgz && docker-php-ext-enable xdebug
 
+#安装composer
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+#替换成阿里云镜像
+RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+
 #修改uuid
 RUN usermod -u 1000 www-data
 
